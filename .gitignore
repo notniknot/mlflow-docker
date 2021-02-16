@@ -1,5 +1,4 @@
-postgres/data/
-minio/data/
 __pycache__
 .vscode/settings.json
 .vscode/launch.json
+.minio.sys
