@@ -27,7 +27,7 @@ setup(
         "mlflow.artifact_repository": [
             # s3://... uris
             "s3=mlflow_plugin.s3_artifact:PluginS3ArtifactRepository",
-            # models://... uris
+            # models:/... uris
             "models=mlflow_plugin.models_artifact:PluginModelsArtifactRepository",
         ],
         "mlflow.model_registry_store": [

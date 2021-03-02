@@ -9,6 +9,7 @@ from sklearn.model_selection import train_test_split
 
 from preprocessing.pipeline import get_pipeline
 
+
 def get_data():
     URL = './examples/processed.cleveland.data'
     df = pd.read_csv(
@@ -78,11 +79,11 @@ def main():
     }
 
     init_mlflow(
-        config_path_or_dict=r'C:\Users\Niklas\Documents\Projects\mlflow_env\examples\mlflow-config.yaml'
+        config_path_or_dict='/home/niklas/Documents/mlflow_docker/examples/mlflow-config.yaml'
     )
     mlflow.set_experiment("exp3")
 
-    with mlflow.start_run(run_name='test1') as run:
+    with mlflow.start_run(run_name='test2') as run:
         # log metrics
         mlflow.log_metric("accuracy", accuracy_score(val['target'].values, y_pred))
         mlflow.log_metric("precison", precision_score(val['target'].values, y_pred))
@@ -92,7 +93,7 @@ def main():
         mlflow.pyfunc.log_model(
             artifact_path="model",
             python_model=ModelOut(model=pipline),
-            code_path=['examples/preprocessing'],
+            code_path=['examples/scripts/preprocessing'],
             conda_env=mlflow_conda,
             artifacts={'val.feather': 'examples/data/val.feather'},
         )

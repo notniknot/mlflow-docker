@@ -1,0 +1,15 @@
+artifact_path: model
+flavors:
+  python_function:
+    artifacts:
+      val.feather:
+        path: artifacts/val.feather
+        uri: examples/data/val.feather
+    cloudpickle_version: 1.6.0
+    code: code
+    env: conda.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.8.5
+run_id: 0bff6d5b09414a4f96198f054b4e920c
+utc_time_created: '2021-03-01 10:55:12.965144'
