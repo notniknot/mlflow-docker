@@ -13,6 +13,27 @@ class PluginS3ArtifactRepository(S3ArtifactRepository):
         self.is_plugin = True
         return super(PluginS3ArtifactRepository, self).__init__(artifact_uri)
 
+    def _get_s3_client(self):
+        import boto3
+        from botocore.client import Config
+
+        s3_endpoint_url = os.environ.get("MLFLOW_S3_ENDPOINT_URL")
+        ignore_tls = os.environ.get("MLFLOW_S3_IGNORE_TLS")
+
+        verify = True
+        if ignore_tls:
+            verify = ignore_tls.lower() not in ["true", "yes", "1"]
+
+        signature_version = os.environ.get("MLFLOW_EXPERIMENTAL_S3_SIGNATURE_VERSION", "s3v4")
+        return boto3.client(
+            "s3",
+            config=Config(
+                signature_version=signature_version, read_timeout=0.5, retries={'max_attempts': 120}
+            ),
+            endpoint_url=s3_endpoint_url,
+            verify=verify,
+        )
+
     def _calculate_md5(self, path):
         hash_md5 = hashlib.md5()
         with open(path, "rb") as file:

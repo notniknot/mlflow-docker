@@ -13,6 +13,7 @@ from setuptools import setup, find_packages
 # - .mlflowignore bei File-Upload
 # - Download nur der Preprocessing-Komponente
 # - Schnittstelle für Deployment bereitgestellt
+# - Timeout reduzieren, damit log schneller geht
 
 
 setup(
