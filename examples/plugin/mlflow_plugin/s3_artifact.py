@@ -28,7 +28,7 @@ class PluginS3ArtifactRepository(S3ArtifactRepository):
         return boto3.client(
             "s3",
             config=Config(
-                signature_version=signature_version, read_timeout=0.5, retries={'max_attempts': 120}
+                signature_version=signature_version, read_timeout=1, retries={'max_attempts': 120}
             ),
             endpoint_url=s3_endpoint_url,
             verify=verify,
