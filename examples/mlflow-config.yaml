@@ -1,0 +1,14 @@
+MLFLOW:
+  MLFLOW_TRACKING_URI: http://127.0.0.1:15000
+  MLFLOW_TRACKING_USERNAME: mlflow
+  MLFLOW_TRACKING_PASSWORD: mlflow
+S3:
+  AWS_ACCESS_KEY_ID: mein_access_key
+  AWS_SECRET_ACCESS_KEY: mein_secret_key
+  MLFLOW_S3_ENDPOINT_URL: http://127.0.0.1:19000/
+LOCAL_ENV:
+  MLFLOW_ENV_TYPE: dev
+  MLFLOW_VALIDATE_FILES: checksum
+  MLFLOW_DST_PATH: /home/niklas/Documents/mlflow_docker/examples/destination
+  MLFLOW_IGNORE_PATH: /home/niklas/Documents/mlflow_docker/examples/.mlflowignore
+  no_proxy: localhost,127.0.0.1

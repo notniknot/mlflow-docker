@@ -1,14 +1,13 @@
-import os
-
 import mlflow
 import mlflow.sklearn
 import numpy as np
 import pandas as pd
 from mlflow.models.signature import infer_signature
+from mlflow_plugin import init_mlflow
 from sklearn.metrics import accuracy_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
-from transformers.pipeline import get_pipeline
 
+from preprocessing.pipeline import get_pipeline
 
 def get_data():
     URL = './examples/processed.cleveland.data'
@@ -78,20 +77,12 @@ def main():
         ],
     }
 
-    REMOTE_IP = '127.0.0.1'
-    os.environ['no_proxy'] = REMOTE_IP
+    init_mlflow(
+        config_path_or_dict=r'C:\Users\Niklas\Documents\Projects\mlflow_env\examples\mlflow-config.yaml'
+    )
+    mlflow.set_experiment("exp3")
 
-    os.environ["MLFLOW_TRACKING_USERNAME"] = "mlflow"
-    os.environ["MLFLOW_TRACKING_PASSWORD"] = "mlflow"
-
-    os.environ["AWS_ACCESS_KEY_ID"] = "mein_access_key"
-    os.environ["AWS_SECRET_ACCESS_KEY"] = "mein_secret_key"
-    os.environ["MLFLOW_S3_ENDPOINT_URL"] = f"http://{REMOTE_IP}:9000/"
-
-    mlflow.set_tracking_uri(f"http://{REMOTE_IP}:5000")
-    mlflow.set_experiment("exp")
-
-    with mlflow.start_run(run_name='test7') as run:
+    with mlflow.start_run(run_name='test1') as run:
         # log metrics
         mlflow.log_metric("accuracy", accuracy_score(val['target'].values, y_pred))
         mlflow.log_metric("precison", precision_score(val['target'].values, y_pred))
@@ -101,7 +92,7 @@ def main():
         mlflow.pyfunc.log_model(
             artifact_path="model",
             python_model=ModelOut(model=pipline),
-            code_path=['examples/transformers'],
+            code_path=['examples/preprocessing'],
             conda_env=mlflow_conda,
             artifacts={'val.feather': 'examples/data/val.feather'},
         )

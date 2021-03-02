@@ -3,9 +3,9 @@ from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 
-from transformers.custom_transformer import CustomTransformer
-from transformers.numeric_transformer import get_numeric_transformer
-from transformers.categorical_transformer import get_categorical_transformer
+from preprocessing.custom_transformer import CustomTransformer
+from preprocessing.numeric_transformer import get_numeric_transformer
+from preprocessing.categorical_transformer import get_categorical_transformer
 
 
 def get_pipeline():

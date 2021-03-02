@@ -1,4 +1,10 @@
+postgres/data/*
+minio/data/*
 __pycache__
-.vscode/settings.json
+examples/artifacts
+mlflow_plugin.egg-info
 .vscode/launch.json
-.minio.sys
+dist
+build
+*.whl
+.vscode/settings.json
