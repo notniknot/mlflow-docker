@@ -99,11 +99,10 @@ def main():
             # signature=infer_signature(val, y_pred),
         )
 
-    model_uri = f"runs:/{run.info.run_id}/model"
-    mv = mlflow.register_model(model_uri, "test_model")
-
-    print("Name: {}".format(mv.name))
-    print("Version: {}".format(mv.version))
+    # model_uri = f"runs:/{run.info.run_id}/model"
+    # mv = mlflow.register_model(model_uri, "test_model")
+    # print("Name: {}".format(mv.name))
+    # print("Version: {}".format(mv.version))
 
 
 if __name__ == '__main__':

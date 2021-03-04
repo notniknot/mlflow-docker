@@ -11,8 +11,10 @@ paths = get_preprocessing(
     preprocessing_location='preprocessing',
     artifacts=[''],
 )
+print('Paths', paths)
 
 df = pd.read_feather(paths['artifacts'][''] + '/val.feather')
+
 
 from preprocessing.pipeline import get_pipeline
 

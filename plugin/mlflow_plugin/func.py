@@ -54,6 +54,6 @@ def get_preprocessing(
             paths['artifacts'][artifact] = artifact_location
 
     if append_to_sys_path:
-        sys.path.append(Path(artifact_location).resolve().parent)
+        sys.path.append(str(Path(paths['preprocessing']).resolve().parent))
 
     return paths

@@ -8,7 +8,7 @@ S3:
   MLFLOW_S3_ENDPOINT_URL: http://127.0.0.1:19000
 LOCAL_ENV:
   MLFLOW_ENV_TYPE: dev
-  MLFLOW_VALIDATE_FILES: checksum
+  MLFLOW_VALIDATE_FILES: version
   MLFLOW_DST_PATH: /home/niklas/Documents/mlflow_docker/examples/destination
   MLFLOW_IGNORE_PATH: /home/niklas/Documents/mlflow_docker/examples/.mlflowignore
   no_proxy: localhost,127.0.0.1
