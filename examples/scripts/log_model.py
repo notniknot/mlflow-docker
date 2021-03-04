@@ -79,9 +79,9 @@ def main():
     }
 
     init_mlflow(
-        config_path_or_dict='/home/niklas/Documents/mlflow_docker/examples/mlflow-config.yaml'
+        config_path_or_dict='/home/niklas/Documents/mlflow_docker/examples/mlflow-config.yaml',
+        experiment="exp3",
     )
-    mlflow.set_experiment("exp3")
 
     with mlflow.start_run(run_name='test2') as run:
         # log metrics
@@ -96,8 +96,8 @@ def main():
             code_path=['examples/scripts/preprocessing'],
             conda_env=mlflow_conda,
             artifacts={'val.feather': 'examples/data/val.feather'},
+            # signature=infer_signature(val, y_pred),
         )
-        # signature = infer_signature(val, y_pred)
 
     model_uri = f"runs:/{run.info.run_id}/model"
     mv = mlflow.register_model(model_uri, "test_model")

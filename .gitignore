@@ -1,5 +1,6 @@
-postgres/data/*
-minio/data/*
+postgres/data
+mlflow-bucket
+.minio.sys
 __pycache__
 examples/artifacts
 mlflow_plugin.egg-info
