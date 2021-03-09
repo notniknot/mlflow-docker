@@ -75,6 +75,16 @@ class PluginS3ArtifactRepository(S3ArtifactRepository):
             print('Ignored for upload:', local_file)
             return
 
+        # * boto3 bug: https://github.com/minio/minio/issues/6540 or https://github.com/urllib3/urllib3/issues/1438
+        if (
+            os.environ.get('MLFLOW_FILL_EMPTY_UPLOAD_FILES', '').lower() in ['true', 'yes', '1']
+            and os.path.getsize(local_file) == 0
+        ):
+            try:
+                with open(local_file, 'w') as file:
+                    file.write('# empty file')
+            except Exception:
+                pass
         return super(PluginS3ArtifactRepository, self)._upload_file(
             s3_client, local_file, bucket, key
         )

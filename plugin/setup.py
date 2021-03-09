@@ -14,15 +14,14 @@ from setuptools import setup, find_packages
 # - Download nur der Preprocessing-Komponente
 # - Schnittstelle für Deployment bereitgestellt
 # - Timeout reduzieren, damit log schneller geht
+# - Boto3 Content-Length-0-Fix
 
 
 setup(
     name="mlflow_plugin",
-    version="0.0.1.dev",
-    description="MLflow Plugin",
+    version="1.0.1",
+    description="Cosmos MLflow Plugin",
     packages=find_packages(),
-    # Require MLflow as a dependency of the plugin, so that plugin users can simply install
-    # the plugin & then immediately use it with MLflow
     install_requires=["mlflow"],
     entry_points={
         "mlflow.artifact_repository": [

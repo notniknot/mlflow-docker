@@ -30,9 +30,9 @@ class PluginHTTPRegistryStore(RestStore):
         super(PluginHTTPRegistryStore, self).__init__(get_host_creds)
 
     def transition_model_version_stage(self, name, version, stage, archive_existing_versions):
-        print(
-            f'CLI: Transitioned model {name} ({version}) to stage {stage}, archive_existing_versions: {archive_existing_versions}'
-        )
+        # print(
+        #     f'CLI: Transitioned model {name} ({version}) to stage {stage}, archive_existing_versions: {archive_existing_versions}'
+        # )
         return super(PluginHTTPRegistryStore, self).transition_model_version_stage(
             name, version, stage, archive_existing_versions
         )

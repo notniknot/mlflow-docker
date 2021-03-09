@@ -9,3 +9,6 @@ dist
 build
 *.whl
 .vscode/settings.json
+.env
+mlflow-config.yaml
+docker/nginx/.htpasswd

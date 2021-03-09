@@ -34,7 +34,7 @@ def _determine_config_type(config):
         _set_local_settings(config['LOCAL_ENV'])
 
 
-def init_mlflow(config_path_or_dict=None, override: dict = None):
+def init_mlflow(config_path_or_dict=None, override: dict = None, experiment: str = None):
 
     if isinstance(config_path_or_dict, str):
         with open(config_path_or_dict, 'r') as stream:
@@ -54,3 +54,5 @@ def init_mlflow(config_path_or_dict=None, override: dict = None):
             _determine_config_type(override)
         else:
             raise TypeError()
+    if experiment:
+        mlflow.set_experiment(experiment)

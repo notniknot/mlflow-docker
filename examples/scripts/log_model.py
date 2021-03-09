@@ -83,7 +83,7 @@ def main():
         experiment="exp3",
     )
 
-    with mlflow.start_run(run_name='test2') as run:
+    with mlflow.start_run(run_name='test99') as run:
         # log metrics
         mlflow.log_metric("accuracy", accuracy_score(val['target'].values, y_pred))
         mlflow.log_metric("precison", precision_score(val['target'].values, y_pred))
@@ -99,10 +99,10 @@ def main():
             # signature=infer_signature(val, y_pred),
         )
 
-    # model_uri = f"runs:/{run.info.run_id}/model"
-    # mv = mlflow.register_model(model_uri, "test_model")
-    # print("Name: {}".format(mv.name))
-    # print("Version: {}".format(mv.version))
+    model_uri = f"runs:/{run.info.run_id}/model"
+    mv = mlflow.register_model(model_uri, "test_model")
+    print("Name: {}".format(mv.name))
+    print("Version: {}".format(mv.version))
 
 
 if __name__ == '__main__':
