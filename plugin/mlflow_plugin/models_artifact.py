@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 import mlflow
 from mlflow.store.artifact.models_artifact_repo import ModelsArtifactRepository
@@ -32,6 +33,9 @@ class PluginModelsArtifactRepository(ModelsArtifactRepository):
             return False
 
         remote_version = self._get_remote_version(artifact_path)
+        artifact_path = artifact_path.rstrip('/')
+        if not self._is_directory(artifact_path=artifact_path):
+            artifact_path = Path(artifact_path).parent
 
         version_file = os.path.join(dst_path, artifact_path, '.mlflowversion')
         version_dirname = os.path.join(dst_path, artifact_path)

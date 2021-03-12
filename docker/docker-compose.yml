@@ -14,7 +14,7 @@ services:
             POSTGRES_USER: ${POSTGRES_USER:-postgres}
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres_pw}
         volumes:
-            - ./postgres/data:/var/lib/postgresql/data
+            - ./postgres/data:/var/lib/postgresql/data:Z
 
     minio:
         restart: always
@@ -24,7 +24,7 @@ services:
             - MINIO_ROOT_USER=${AWS_ACCESS_KEY_ID:-access_key}
             - MINIO_ROOT_PASSWORD=${AWS_SECRET_ACCESS_KEY:-secret_key}
         volumes:
-            - ./minio/data:/data
+            - ./minio/data:/data:Z
         ports:
             - "${MINIO_PORT:-19000}:9000"
         networks:
@@ -33,14 +33,15 @@ services:
 
     web:
         restart: always
-        build:
-            context: ./mlflow_server
-            dockerfile: Dockerfile
-            args:
-                # Set proxy for pip
-                - HTTP_PROXY=${PROXY:-}
-                - HTTPS_PROXY=${PROXY:-}
-        image: mlflow_server
+        # build:
+        #     context: ./mlflow_server
+        #     dockerfile: Dockerfile
+        #     args:
+        #         # Set proxy for pip
+        #         - HTTP_PROXY=${PROXY:-}
+        #         - HTTPS_PROXY=${PROXY:-}
+        # image: mlflow_server
+        image: mlflow_server:latest
         container_name: mlflow_server
         environment:
             - MLFLOW_S3_ENDPOINT_URL=http://minio:9000/
@@ -65,8 +66,9 @@ services:
 
     nginx:
         restart: always
-        build: ./nginx
-        image: mlflow_nginx
+        # build: ./nginx
+        # image: mlflow_nginx
+        image: mlflow_nginx:latest
         container_name: mlflow_nginx
         ports:
             - "${MLFLOW_PORT:-15000}:80"
