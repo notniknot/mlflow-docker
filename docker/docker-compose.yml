@@ -33,15 +33,16 @@ services:
 
     web:
         restart: always
-        # build:
-        #     context: ./mlflow_server
-        #     dockerfile: Dockerfile
-        #     args:
-        #         # Set proxy for pip
-        #         - HTTP_PROXY=${PROXY:-}
-        #         - HTTPS_PROXY=${PROXY:-}
-        # image: mlflow_server
-        image: mlflow_server:latest
+        build:
+            context: ./mlflow_server
+            dockerfile: Dockerfile
+            args:
+                # Set proxy for pip
+                - HTTP_PROXY=${PROXY:-}
+                - HTTPS_PROXY=${PROXY:-}
+        image: mlflow_server
+        # If images can't be built in current env
+        # image: mlflow_server:latest
         container_name: mlflow_server
         environment:
             - MLFLOW_S3_ENDPOINT_URL=http://minio:9000/
@@ -66,9 +67,10 @@ services:
 
     nginx:
         restart: always
-        # build: ./nginx
-        # image: mlflow_nginx
-        image: mlflow_nginx:latest
+        build: ./nginx
+        image: mlflow_nginx
+        # If images can't be built in current env
+        # image: mlflow_nginx:latest
         container_name: mlflow_nginx
         ports:
             - "${MLFLOW_PORT:-15000}:80"

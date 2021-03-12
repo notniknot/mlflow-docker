@@ -84,7 +84,7 @@ if __name__ == "__main__":
     print("  R2: %s" % r2)
 
     init_mlflow(
-        config_path_or_dict='/srv/dev/mlflow/examples/elasticnet_diabetes/mlflow-config.yaml',
+        config_path_or_dict='/srv/users/v126168/mlflow_docker/examples/elasticnet_diabetes/mlflow-config.yaml',
         experiment='diabetes',
     )
 

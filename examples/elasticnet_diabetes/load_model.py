@@ -4,7 +4,7 @@ from mlflow_plugin import init_mlflow
 from sklearn import datasets
 
 
-init_mlflow(config_path_or_dict='/srv/dev/mlflow/examples/elasticnet_diabetes/mlflow-config.yaml')
+init_mlflow(config_path_or_dict='/srv/users/v126168/mlflow_docker/examples/elasticnet_diabetes/mlflow-config.yaml')
 
 model_name = 'diabetes'
 stage = 'Production'

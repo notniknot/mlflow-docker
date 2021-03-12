@@ -18,7 +18,7 @@ def main():
     # }
 
     init_mlflow(
-        config_path_or_dict='/srv/dev/mlflow/examples/attribution_model/mlflow-config.yaml',
+        config_path_or_dict='/srv/users/v126168/mlflow_docker/examples/attribution_model/mlflow-config.yaml',
         experiment="attribution_model",
     )
 
