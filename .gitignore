@@ -2,15 +2,9 @@
 **/mlflow-bucket/**
 .minio.sys
 __pycache__
-examples/artifacts
-mlflow_plugin.egg-info
 .vscode
-dist
-build
-*.whl
 .env
 mlflow-config.yaml
-docker/nginx/.htpasswd
-*.feather
-**/destination/**
+.htpasswd
 !.gitkeep
+*.pptx
