@@ -1,10 +1,19 @@
+# container data
 **/postgres/data/**
 **/mlflow-bucket/**
 .minio.sys
+
+# python
 __pycache__
+
+# vscode
 .vscode
+
+# config
 .env
 mlflow-config.yaml
 .htpasswd
+
+# other
 !.gitkeep
 *.pptx
