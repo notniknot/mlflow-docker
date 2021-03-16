@@ -1,9 +1,6 @@
 # mlflow-docker
 
-This repository contains an MLflow docker setup with the following components:
-- Docker Architecture to run MLflow with user authentication
-- MLflow plugin that solves various problems
-- Examples how to use MLflow
+This repository contains an MLflow docker setup.
 
 ## Docker Environment
 ### Architecture
