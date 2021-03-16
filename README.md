@@ -1,6 +1,6 @@
 # mlflow-docker
 
-This repository contains an MLflow docker setup.a
+This repository contains an MLflow docker setup.
 
 ## Docker Environment
 ### Architecture
@@ -29,7 +29,7 @@ docker
 │       └── mlflow-bucket
 ├── mlflow_server
 │   ├── Dockerfile
-│   └── mlflow_plugin-1.0.1-py3-none-any.whl
+│   └── mlflow_extension-xxx-py3-none-any.whl
 ├── nginx
 │   ├── Dockerfile
 │   ├── .htpasswd
