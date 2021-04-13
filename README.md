@@ -34,7 +34,6 @@ This repo is for data scientists and engineers who want to use MLflow with a sol
 
 
 # Architecture
-## Docker Environment
 
 1. PostgreSQL database
     - Stores runs and metrics
