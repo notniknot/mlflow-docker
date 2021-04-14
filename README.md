@@ -13,8 +13,7 @@
 <p align="center">
     <img src="https://img.shields.io/badge/language-python-green">
     <img src="https://img.shields.io/badge/codestyle-black-black">
-    <img src="https://img.shields.io/badge/last commit-yesterday-inactive">
-    <img src="https://img.shields.io/badge/commit acitvity-none-inactive">
+    <img src="https://img.shields.io/github/last-commit/notniknot/mlflow-docker">
 </p>
 
 <p align="center">
@@ -47,7 +46,7 @@ This repo is for data scientists and engineers who want to use MLflow with a sol
 4. nginx webserver
     - Acts as authentication layer for the mlflow server
 
-![Docker Containers](docs/imgs/mlflow-docker-env.png)
+![Docker Containers](docs/mlflow-docker-env.png)
 
 # Setup
 Make sure the directory structure is as follows (you can check out my mlflow_extension as well that fits perfectly to this setup):
